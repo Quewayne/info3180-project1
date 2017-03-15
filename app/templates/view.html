@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Profile{% endblock %}
+
+{% block page_content %}
+<head>
+	<link rel="stylesheet" type="text/css"
+	 href="{{url_for('static', filename='css/profile.css')}}">
+</head>
+
+<body>
+	<div class = "profilecontainer">
+		<img src="{{user['image']}}">
+			<div class= "Info">
+				<div class= "name">
+					<h1 id= "name"> {{user['fname']}} {{user['lname']}}</h1>
+				</div>
+
+				<div class= "date">
+						<p >Date Created On:  {{datestring}} </p> 
+				</div>
+
+				<div id= "info">
+					<br>
+					<p><b>Username:</b> {{user['uname']}}</p>
+					<p><b>ID Number:</b> {{user['id']}}</p>
+					<p><b>Gender:</b> {{user['sex']}}</p>
+					<p><b>Age: </b>{{user['age']}}</p>
+					<hr>
+					<p>{{user['bio']}}</p>
+				</div>
+		</div>
+	</div>
+{% endblock %}
